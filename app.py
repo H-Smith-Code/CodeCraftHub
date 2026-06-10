@@ -22,8 +22,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # allow all origins by default
 
 # File where courses will be persisted
 DATA_FILE = 'data/courses.json'
