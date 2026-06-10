@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  codecrafthub:
+    build: .
+    container_name: codecrafthub
+    ports:
+      - "5000:5000"
+    volumes:
+      # Persist data by binding host file to the container's courses.json
+      # Ensure ./data exists on the host; on first run, the app will create this file.
+      - ./data:/app/data
+    restart: unless-stopped
