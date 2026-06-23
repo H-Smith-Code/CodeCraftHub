@@ -21,7 +21,7 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -169,6 +169,11 @@ def validate_course_fields(payload, require_all=False, include_id=False):
 
     return True, ""
 
+# --- Home Route ---
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 # --- API endpoints ---
 
